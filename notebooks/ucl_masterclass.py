@@ -452,8 +452,9 @@ def plot_variable(df,variable, bins = None,bin_number = 20):
     df_sig = df.loc[df['Class']==1]
     var_list_sig = df_sig[variable].tolist()
 
-
-    if variable in ['mBB','Mtop','pTV','MET','mTW']:
+    # added pTB1 and pTB2 to variables to divide 1e3 by.
+    # if variable in ['mBB','Mtop','pTV','MET','mTW']:
+    if variable in ['mBB','Mtop','pTV','MET','mTW','pTB1','pTB2']:
         var_list_sig = [i/1e3 for i in var_list_sig]
     plt.hist(var_list_sig,
          bins=bins,
